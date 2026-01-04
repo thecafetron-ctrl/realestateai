@@ -5,7 +5,7 @@ import { ApiError, handleApiError, requireUser } from "@/lib/api/route-helpers";
 
 const createSchema = z.object({
   clientId: z.string().uuid().optional().nullable(),
-  sender: z.enum(["agent", "ai", "client"]),
+  sender: z.enum(["agent", "ai"]),
   content: z.string(),
 });
 

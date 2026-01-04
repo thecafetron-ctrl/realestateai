@@ -46,7 +46,7 @@ export async function POST(req: Request) {
       await supabase.from("messages").insert({
         user_id: user.id,
         client_id: clientId,
-        sender: "client", // AI responses appear as client messages
+        sender: "ai", // AI responses simulating client messages
         content: fallback,
       });
       return NextResponse.json({ message: fallback });
@@ -61,7 +61,7 @@ export async function POST(req: Request) {
 
     const chatHistory =
       history?.map((item) => ({
-        role: item.sender === "client" || item.sender === "ai" ? ("assistant" as const) : ("user" as const),
+        role: item.sender === "ai" ? ("assistant" as const) : ("user" as const),
         content: item.content,
       })) ?? [];
 
@@ -97,7 +97,7 @@ export async function POST(req: Request) {
             await supabase.from("messages").insert({
               user_id: user.id,
               client_id: clientId,
-              sender: "client", // AI responses appear as client messages
+              sender: "ai", // AI responses simulating client messages
               content: fullResponse.trim(),
             });
           }
