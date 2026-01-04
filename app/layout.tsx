@@ -18,11 +18,12 @@ const geistMono = localFont({
 export const metadata: Metadata = {
   title: "AI Real Estate Growth System",
   description: "AI-powered growth operating system for modern real estate teams.",
-  viewport: {
-    width: "device-width",
-    initialScale: 1,
-    maximumScale: 5,
-  },
+};
+
+export const viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 5,
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
